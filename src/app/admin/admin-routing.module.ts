@@ -7,11 +7,11 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      {
-        path: 'dashboard',
-        loadChildren: () => import (`./dashboard/dashboard.module`).then((m) =>m.DashboardModule),
-      },
+      { path: '', redirectTo: 'file-manager', pathMatch: 'full' },
+      // {
+      //   path: 'dashboard',
+      //   loadChildren: () => import (`./dashboard/dashboard.module`).then((m) =>m.DashboardModule),
+      // },
       {
         path: 'user-profile',
         loadChildren: () => import (`./user-profile/user-profile.module`).then((m) =>m.UserProfileModule),

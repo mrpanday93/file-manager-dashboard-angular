@@ -12,7 +12,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class LayoutComponent {
   mode: MatDrawerMode = 'side';
-  hasBackdrop = false;
+  hasBackdrop = true;
   openNavBar: boolean = true;
   windowSize: string = '';
 
@@ -65,6 +65,5 @@ export class LayoutComponent {
 
   collapseNavbar() {
     this.openNavBar = !this.openNavBar;
-    console.log(this.openNavBar);
   }
 }
