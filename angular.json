@@ -3,11 +3,18 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "file-manager-dashboard": {
+    "file-manager-dashboard-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
         }
       },
       "root": "",
@@ -17,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/file-manager-dashboard",
+            "outputPath": "dist/file-manager-dashboard-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -62,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "file-manager-dashboard:build:production"
+              "buildTarget": "file-manager-dashboard-angular:build:production"
             },
             "development": {
-              "buildTarget": "file-manager-dashboard:build:development"
+              "buildTarget": "file-manager-dashboard-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "file-manager-dashboard:build"
+            "buildTarget": "file-manager-dashboard-angular:build"
           }
         },
         "test": {
