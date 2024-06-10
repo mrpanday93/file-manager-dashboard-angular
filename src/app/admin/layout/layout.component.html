@@ -1,0 +1,9 @@
+<mat-drawer-container [hasBackdrop]="hasBackdrop">
+  <mat-drawer #drawer [mode]="mode" [opened]="openNavBar">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content class="bg-slate-100">
+    <!-- <mrp-app-top-navbar (toggleSideBar)="drawer.toggle()"></mrp-app-top-navbar> -->
+    <router-outlet />
+  </mat-drawer-content>
+</mat-drawer-container>

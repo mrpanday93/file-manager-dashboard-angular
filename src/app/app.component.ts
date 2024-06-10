@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'file-manager-dashboard-angular';
+  title = 'File Manager - Angular';
 }

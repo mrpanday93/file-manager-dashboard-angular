@@ -5,26 +5,9 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthenticationComponent } from './authentication.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent,
-    AuthenticationComponent
-  ],
-  imports: [
-    CommonModule,
-    AuthenticationRoutingModule,
-    MatTabsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatInputModule,
-    MatFormFieldModule,
-  ]
+  declarations: [LoginComponent, RegisterComponent, AuthenticationComponent],
+  imports: [CommonModule, AuthenticationRoutingModule, SharedModule],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}
