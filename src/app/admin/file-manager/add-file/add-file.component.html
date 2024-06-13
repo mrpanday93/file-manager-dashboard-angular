@@ -1,0 +1,7 @@
+<div class="action-block">
+  @if(!currentFile){<input type="file"  class="file-upload" accept=".csv" (change)="onFileSelected($event)" #fileUpload hidden>
+  <button mat-flat-button color="warn" (click)="fileUpload.click()">Add New</button>
+  } @else {
+    <button mat-flat-button color="warn" disabled>Uploading</button>
+  }
+</div>

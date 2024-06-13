@@ -1,0 +1,18 @@
+<mat-drawer-container [hasBackdrop]="hasBackdrop" class="sidebar-container">
+  <mat-drawer
+    #drawer
+    [mode]="mode"
+    [opened]="openNavBar"
+    class="mat-elevation-z3"
+  >
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <main>
+      <app-topbar (toggleSideBar)="drawer.toggle()"></app-topbar>
+      <div class="main-wrapper">
+        <router-outlet />
+      </div>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>

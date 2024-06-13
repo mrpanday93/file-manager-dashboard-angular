@@ -1,0 +1,27 @@
+<div class="sidebar">
+  <ng-scrollbar visibility="hover" style="height: 100vh" class="full-w-scroll">
+    <div class="sidebar-inner-wrapper">
+      <div class="menu-section-wrapper">
+        <div class="logo-section">
+          <div class="logo">
+            <img class="logo-img" src="assets/angular2-logo-red.webp" />
+            <span>File Manager</span>
+          </div>
+        </div>
+        <mat-list class="menu">
+          @for (item of menuItems; track item) {
+          <a routerLink="{{ item.link }}"  routerLinkActive="active">
+            <mat-list-item class="menu-item">
+              <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+              <div matListItemTitle class="title">{{ item.name }}</div>
+            </mat-list-item>
+          </a>
+          }
+        </mat-list>
+      </div>
+      <div class="footer-section">
+        <div class="tnc">Terms & Conditions</div>
+      </div>
+    </div>
+  </ng-scrollbar>
+</div>

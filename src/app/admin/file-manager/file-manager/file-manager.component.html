@@ -1,0 +1,92 @@
+<div class="page-wraper" style="overflow: hidden">
+  <app-add-file (fetchRecords)="fetchFiles()"></app-add-file>
+  <div class="table-wrapper-outer" style="position: relative; overflow: hidden">
+    @if(!loading && errorMessage == ''){<ng-scrollbar
+      visibility="hover"
+      style="max-height: calc(100vh - 250px)"
+      class="full-w-scroll"
+    >
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let item">{{ item.id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let item">{{ item.title }}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="stared">
+          <th mat-header-cell *matHeaderCellDef>Stared</th>
+          <td mat-cell *matCellDef="let item">
+            <div class="column-wrapper column">
+              <mat-icon>{{ item.stared ? "star" : "star_border" }}</mat-icon>
+              <p>{{ item.stared ? "Stared" : "Not Stared" }}</p>
+            </div>
+          </td></ng-container
+        >
+
+        <ng-container matColumnDef="archived">
+          <th mat-header-cell *matHeaderCellDef>Archived</th>
+          <td mat-cell *matCellDef="let item">
+            <div class="column-wrapper column">
+              <mat-icon>{{ item.archived ? "archive" : "unarchive" }}</mat-icon>
+              <p>{{ item.archived ? "Archived" : "Not Archived" }}</p>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef>UploadedAt</th>
+          <td mat-cell *matCellDef="let item">{{ item.createdAt }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Acions</th>
+          <td mat-cell *matCellDef="let item">
+            <div class="column-wrapper">
+              <button
+                mat-icon-button
+                aria-label="menu icon"
+                (click)="updateFile(item.id, 'archived', !item.archived)"
+              >
+                <mat-icon>{{
+                  item.archived ? "unarchive" : "archive"
+                }}</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                aria-label="menu icon"
+                (click)="updateFile(item.id, 'stared', !item.stared)"
+              >
+                <mat-icon>{{ item.stared ? "star_border" : "star" }}</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                [routerLink]="['view', item.id]"
+              >
+                <mat-icon>visibility</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table> </ng-scrollbar
+    >} @else { @if (errorMessage == '') {
+    <div class="spinner-block">
+      <mat-spinner [color]="'accent'"></mat-spinner>
+    </div>
+    } @else {
+    <div class="nf-block">
+      <div>{{ errorMessage }}</div>
+    </div>
+    } }
+  </div>
+</div>
