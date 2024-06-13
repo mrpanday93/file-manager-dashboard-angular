@@ -10,6 +10,7 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 export class LoginComponent {
   hide = true;
   serveError = '';
+  loading = false;
   loginForm = this.formBuilder.group({
     username: ['', Validators.compose([Validators.required])],
     password: ['', Validators.compose([Validators.required])],
@@ -26,6 +27,7 @@ export class LoginComponent {
 
   onSubmit() {
     this.serveError = '';
+    this.loading = true;
     if (this.loginForm.valid) {
       const username = this.loginForm.value.username;
       const password = this.loginForm.value.password;
@@ -33,6 +35,7 @@ export class LoginComponent {
         let res = this.authSrvc.login(username, password).subscribe({
           next: (v: any) => {
             if (v.token) this.authSrvc.setToken(v.token);
+            this.loading = false;
           },
           error: (e: any) => {
             if (e.error.message) {
@@ -40,6 +43,7 @@ export class LoginComponent {
             } else {
               this.serveError = 'Something went wrong';
             }
+            this.loading = false;
           },
           complete: () => {
             console.log('complete');

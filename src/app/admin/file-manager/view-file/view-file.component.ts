@@ -3,9 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FileService } from '../../../services/file/file.service';
 import { MatTableDataSource } from '@angular/material/table';
 @Component({
-  selector: 'app-viewfile',
-  templateUrl: './viewfile.component.html',
-  styleUrl: './viewfile.component.scss',
+  selector: 'app-view-file',
+  templateUrl: './view-file.component.html',
+  styleUrl: './view-file.component.scss',
 })
 export class ViewfileComponent implements AfterViewInit {
   columnsToDisplay: string[] = [];

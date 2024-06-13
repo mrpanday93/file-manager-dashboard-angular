@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validator, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 })
 export class RegisterComponent {
   hide = true;
+  loading = false;
   serveError = '';
   registerForm = this.formBuilder.group({
     email: [
@@ -28,12 +29,12 @@ export class RegisterComponent {
       Validators.compose([
         Validators.required,
         Validators.maxLength(25),
-        Validators.minLength(6),
+        Validators.minLength(4),
       ]),
     ],
     username: [
       '',
-      Validators.compose([Validators.required, Validators.maxLength(255)]),
+      Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(25)]),
     ],
   });
 
@@ -48,6 +49,7 @@ export class RegisterComponent {
 
   onSubmit() {
     this.serveError = '';
+    this.loading = true;
     if (this.registerForm.valid) {
       const username = this.registerForm.value.username;
       const email = this.registerForm.value.email;
@@ -59,6 +61,7 @@ export class RegisterComponent {
               this.login(username, password);
             } else {
               this.serveError = 'Something went wrong';
+              this.loading = false;
             }
           },
           error: (e: any) => {
@@ -67,6 +70,7 @@ export class RegisterComponent {
             } else {
               this.serveError = 'Something went wrong';
             }
+            this.loading = false;
           },
         });
       }
@@ -77,6 +81,7 @@ export class RegisterComponent {
     let res = this.authSrvc.login(username, password).subscribe({
       next: (v: any) => {
         if (v.token) this.authSrvc.setToken(v.token);
+        this.loading = false;
       },
       error: (e: any) => {
         if (e.error.message) {
@@ -84,6 +89,7 @@ export class RegisterComponent {
         } else {
           this.serveError = 'Registered Successfully. Error while Login';
         }
+        this.loading = false;
       },
     });
   }
