@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FileManagerComponent } from './file-manager/file-manager.component';
-import { ViewfileComponent } from './viewfile/viewfile.component';
+import { ViewfileComponent } from './view-file/view-file.component';
 
 const routes: Routes = [{
   path: "",

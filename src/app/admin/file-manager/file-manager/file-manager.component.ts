@@ -32,6 +32,8 @@ export class FileManagerComponent {
   }
 
   fetchFiles(): void {
+    this.errorMessage = "";
+    this.loading = true;
     this.fileSrvc.fetchFiles().subscribe({
       next: (v: any) => {
         if (v.length) {
