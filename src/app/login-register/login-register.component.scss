@@ -1,0 +1,39 @@
+.main-container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg");
+  background-position: center;
+  background-size: cover;
+  .login-register-block {
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 38%);
+    padding: 25px;
+    background: #ffffffde;
+    .tab-group {
+      width: 100%;
+      ::ng-deep {
+        .form {
+          border-radius: 8px;
+          display: grid;
+          margin: 20px 0;
+          mat-form-field {
+            width: 100%;
+          }
+          .button-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row-reverse;
+            .error {
+              color: rgb(249, 106, 106);
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { LayoutComponent } from './layout/layout.component';
-import {AdminSharedComponentsModule} from '../admin-shared-components/admin-shared-components.module';
-
+import {AdminSharedComponentsModule} from '../shared/admin/admin-shared-components.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
 @NgModule({
   declarations: [
     LayoutComponent
@@ -12,7 +12,8 @@ import {AdminSharedComponentsModule} from '../admin-shared-components/admin-shar
   imports: [
     CommonModule,
     AdminRoutingModule,
-    AdminSharedComponentsModule
+    AdminSharedComponentsModule,
+    MatSidenavModule
   ]
 })
 export class AdminModule { }

@@ -1,0 +1,27 @@
+.column-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  &.column {
+    flex-direction: column;
+  }
+
+  a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.nf-block {
+  display: flex;
+  background: rgb(251, 251, 251);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 14px;
+}

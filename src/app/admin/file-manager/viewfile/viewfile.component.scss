@@ -1,0 +1,17 @@
+.column {
+    min-width: 150px;
+    max-width: 250px;
+    text-align: center;
+}
+.no-result {
+    display: flex;
+    padding: 10px;
+    font-size: 15px;
+    width: 100%;
+}
+.action-block {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
